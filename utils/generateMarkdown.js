@@ -1,6 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {
+function renderLicenseBadge(license) { //function that generates the markdown code for the badge based on the license provided
   if(license){
     console.log(license)
     switch (license[0]) { //have to do license[0] because license is an array instead of just a string value
@@ -16,17 +14,13 @@ function renderLicenseBadge(license) {
         return '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
       case 'Unlicensed':
         return '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'
-      default:
-        return 'no such license exists'
+      default: //for when the switch case doesn't match any of the ones above
+        return ' '
     }
-  } else{
-    return ' '
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
+function renderLicenseLink(license) { //function that creates the markdown code for the link based on the license provided
   if(license){
     switch (license[0]){
       case 'Apache 2.0':
@@ -42,17 +36,13 @@ function renderLicenseLink(license) {
       case 'Unlicensed':
         return 'https://unlicense.org/'
       default:
-        return 'no such license exists'
+        return ' '
     }
-  } else{
-    return ' '
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 function renderLicenseSection(license, data) { //used data as an input as well because we'll be using it to put in github names
-  if(license){
+  if(license){ //function to create the license text that will go into the license section
     switch (license[0]){
       case 'Apache 2.0':
         return `
@@ -1061,15 +1051,12 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to &lt;<http://unlicense.org/>&gt;`
       default:
-        return 'no such license exists'
+        return ' '
     }
-  } else{
-    return ' '
   }
 }
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+function generateMarkdown(data) { //generates the markdown code for the readme which will be used in the writeToFile function in ../index.js
   return `# ${data.title}
 
 ------------------------

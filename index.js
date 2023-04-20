@@ -1,9 +1,7 @@
-// TODO: Include packages needed for this application
 const fs = require('fs') //file system from node
 const inq = require('inquirer') //inquirer module
-const generateMarkdown = require('./utils/generateMarkdown'); 
+const generateMarkdown = require('./utils/generateMarkdown'); //imports the generateMarkDown function and its associated functions from generateMarkDown.js
 
-// TODO: Create an array of questions for user input
 // require str input of title, description, install instructions, usage information, contribution guidelines, test instructions, github username, email, and choose license that the user would like to use. 
 const questions = [ //questions that will be asked to the user
     {
@@ -65,20 +63,15 @@ const questions = [ //questions that will be asked to the user
 
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(data) {
-    fs.appendFile('generated_readme.md', data, (err)=>{err?console.error(err):console.log('generated_readme.md created')})
+function writeToFile(data) { //function that actually creates the file using the data that's given from the output of generateMarkDown(r)
+    fs.appendFile('generated_readme.md', data, (err)=>{err?console.error(err):console.log('generated_readme.md created')/* this is the success message if there are no errors*/})
 }
 
-// TODO: Create a function to initialize app
 function init() { //function that prompts the user then will use that response in the generateMarkdown function and the writeToFile function will use the output of the generateMarkDown function to create the generated_readme.md file
     inq.prompt(questions).then((r)=>{
         writeToFile(generateMarkdown(r))
     })
 }
-function test() {
-    return '`testing`'
-}
+
 // Function call to initialize app
-test();
 init();
