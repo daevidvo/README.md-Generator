@@ -76,6 +76,9 @@ function init() { //function that prompts the user then will use that response i
         writeToFile(generateMarkdown(r))
     })
 }
-
+function test() {
+    return '`testing`'
+}
 // Function call to initialize app
+test();
 init();
