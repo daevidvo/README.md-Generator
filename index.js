@@ -1,14 +1,13 @@
 // TODO: Include packages needed for this application
-const fs = require('fs')
-const inq = require('inquirer')
-const genMD = require('./utils/generateMarkdown');
-const generateMarkdown = require('./utils/generateMarkdown');
+const fs = require('fs') //file system from node
+const inq = require('inquirer') //inquirer module
+const generateMarkdown = require('./utils/generateMarkdown'); 
 
 // TODO: Create an array of questions for user input
 // require str input of title, description, install instructions, usage information, contribution guidelines, test instructions, github username, email, and choose license that the user would like to use. 
-const questions = [
+const questions = [ //questions that will be asked to the user
     {
-        type: 'input',
+        type: 'input', //type input means that the user will input a string
         message: 'What is the title of your project?',
         name: 'title',
     },
@@ -44,12 +43,22 @@ const questions = [
     },
     {
         type: 'input',
+        message: 'What is your LinkedIn username?',
+        name: 'linkedin_name',
+    },
+    {
+        type: 'input',
+        message: 'What is your Instagram username?',
+        name: 'ig_name',
+    },
+    {
+        type: 'input',
         message: 'What is your email?',
         name: 'email',
     },
     {
-        type: 'checkbox',
-        message: 'What is the title of your project?',
+        type: 'checkbox', //this is a checkbox input instead of string input. user will be prompted with the choices and they select which one they'd like
+        message: 'What license would you like to use? (select only one)',
         choices: ['Apache 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause Simplified License', 'BSD-3 Clause New or Revised License', 'Unlicensed'],
         name: 'license',
     },
@@ -62,7 +71,7 @@ function writeToFile(data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {
+function init() { //function that prompts the user then will use that response in the generateMarkdown function and the writeToFile function will use the output of the generateMarkDown function to create the generated_readme.md file
     inq.prompt(questions).then((r)=>{
         writeToFile(generateMarkdown(r))
     })
