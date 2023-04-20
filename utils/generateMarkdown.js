@@ -933,7 +933,6 @@ please read <https://www.gnu.org/licenses/why-not-lgpl.html>.`
       case 'MIT License':
         return `
 The MIT License (MIT)
-
 =====================
 
 Copyright © ${data.github_name}
@@ -961,7 +960,6 @@ OTHER DEALINGS IN THE SOFTWARE.`
       case 'BSD 2-Clause Simplified License':
         return `
 Simplified BSD License
-
 ======================
 
 _Copyright © ${data.github_name}_  
@@ -994,7 +992,6 @@ either expressed or implied, of the FreeBSD Project.`
       case 'BSD-3 Clause New or Revised License':
         return `
 Modified BSD License
-
 ====================
 
 _Copyright ©${data.github_name}_  
@@ -1026,7 +1023,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
       case 'Unlicensed':
         return `
 Unlicense (Public Domain)
-
 ============================
 
 This is free and unencumbered software released into the public domain.
@@ -1064,8 +1060,6 @@ For more information, please refer to &lt;<http://unlicense.org/>&gt;`
 function generateMarkdown(data) { //generates the markdown code for the readme which will be used in the writeToFile function in ../index.js
   return `# ${data.title}
 
-------------------------
-
 ## Description 📝
 
 ${data.desc}
@@ -1076,7 +1070,7 @@ ${data.desc}
 * [Installation Instructions](#installation-instructions-📥)
 * [Usage Information](#usage-information-✅)
 * [Contribution Guidelines](#contribution-guidelines-🤝)
-* [Test Instructions 🧪](#test-instructions-🧪)
+* [Test Instructions](#test-instructions-🧪)
 * [Author Info](#author-info-👺)
 * [License](#license-🚩)
 
@@ -1108,7 +1102,7 @@ ${data.test_instruc}
 
 ## Author Info 👺
 
-### ${data.github_name}
+### ***${data.github_name}***
 * [Github](github.com/${data.github_name})
 * [LinkedIn](linkedin.com/in/${data.linkedin_name})
 * [Instagram](instagram.com/${data.ig_name})
@@ -1117,7 +1111,9 @@ ${data.test_instruc}
 
 ## Questions ❓
 
-Email me at: [${data.email}](${data.email})
+Email me at: [${data.email}](mailto:${data.email})
+
+------------------------
 
 ## License 🚩
 ${renderLicenseBadge(data.license)}
