@@ -1,6 +1,5 @@
 function renderLicenseBadge(license) { //function that generates the markdown code for the badge based on the license provided
-  if(license){
-    console.log(license)
+  if(license.length === 1){
     switch (license[0]) { //have to do license[0] because license is an array instead of just a string value
       case 'Apache 2.0':
         return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
@@ -17,11 +16,13 @@ function renderLicenseBadge(license) { //function that generates the markdown co
       default: //for when the switch case doesn't match any of the ones above
         return ' '
     }
+  } else {
+    return 'Please choose only one license'
   }
 }
 
 function renderLicenseLink(license) { //function that creates the markdown code for the link based on the license provided
-  if(license){
+  if(license.length === 1){
     switch (license[0]){
       case 'Apache 2.0':
         return 'https://opensource.org/licenses/Apache-2.0'
@@ -38,11 +39,13 @@ function renderLicenseLink(license) { //function that creates the markdown code 
       default:
         return ' '
     }
+  } else {
+    return 'Please choose only one license'
   }
 }
 
 function renderLicenseSection(license, data) { //used data as an input as well because we'll be using it to put in github names
-  if(license){ //function to create the license text that will go into the license section
+  if(license.length === 1){ //function to create the license text that will go into the license section
     switch (license[0]){
       case 'Apache 2.0':
         return `
@@ -1053,6 +1056,8 @@ For more information, please refer to &lt;<http://unlicense.org/>&gt;`
       default:
         return ' '
     }
+  } else {
+    return 'Please choose only one license'
   }
 }
 
@@ -1106,11 +1111,13 @@ ${data.test_instruc}
 ### ${data.github_name}
 * [Github](github.com/${data.github_name})
 * [LinkedIn](linkedin.com/in/${data.linkedin_name})
-* [Email](mailto:${data.email})
 * [Instagram](instagram.com/${data.ig_name})
 
-
 --------------------------
+
+## Questions ❓
+
+Email me at: [${data.email}](${data.email})
 
 ## License 🚩
 ${renderLicenseBadge(data.license)}
