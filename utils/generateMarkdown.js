@@ -239,7 +239,7 @@ file or class name and description of purpose be included on the
 same "printed page" as the copyright notice for easier
 identification within third-party archives.
 
-Copyright [yyyy] [name of copyright owner]
+Copyright ${data.github_name}
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -1060,6 +1060,8 @@ For more information, please refer to &lt;<http://unlicense.org/>&gt;`;
 function generateMarkdown(data) { //generates the markdown code for the readme which will be used in the writeToFile function in ../index.js
   return `# ${data.title}
 
+  ${renderLicenseBadge(data.license)}
+
 ## Description 📝
 
 ${data.desc}
@@ -1072,6 +1074,7 @@ ${data.desc}
 * [Contribution Guidelines](#contribution-guidelines-🤝)
 * [Test Instructions](#test-instructions-🧪)
 * [Author Info](#author-info-👺)
+* [Questions?](#questions-❓)
 * [License](#license-🚩)
 
 ----------------------
@@ -1111,12 +1114,11 @@ ${data.test_instruc}
 
 ## Questions ❓
 
-Email me at: [${data.email}](mailto:${data.email})
+Email me at: [${data.email}](mailto:${data.email}) or [visit my GitHub](github.com/${data.github_name})
 
 ------------------------
 
 ## License 🚩
-${renderLicenseBadge(data.license)}
 
 ${renderLicenseLink(data.license)}
 
