@@ -2,47 +2,47 @@ function renderLicenseBadge(license) { //function that generates the markdown co
   if(license.length === 1){
     switch (license[0]) { //have to do license[0] because license is an array instead of just a string value
       case 'Apache 2.0':
-        return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+        return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
       case 'GNU General Public License v3.0':
-        return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
+        return '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
       case 'MIT License':
-        return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+        return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
       case 'BSD 2-Clause Simplified License':
-        return '[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)'
+        return '[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)';
       case 'BSD-3 Clause New or Revised License':
-        return '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
+        return '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
       case 'Unlicensed':
-        return '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'
+        return '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)';
       default: //for when the switch case doesn't match any of the ones above
-        return ' '
-    }
+        return ' ';
+    };
   } else {
-    return 'Please choose only one license'
-  }
-}
+    return 'Please choose only one license';
+  };
+};
 
 function renderLicenseLink(license) { //function that creates the markdown code for the link based on the license provided
   if(license.length === 1){
     switch (license[0]){
       case 'Apache 2.0':
-        return 'https://opensource.org/licenses/Apache-2.0'
+        return 'https://opensource.org/licenses/Apache-2.0';
       case 'GNU General Public License v3.0':
-        return 'https://www.gnu.org/licenses/gpl-3.0'
+        return 'https://www.gnu.org/licenses/gpl-3.0';
       case 'MIT License':
-        return 'https://opensource.org/licenses/MIT'
+        return 'https://opensource.org/licenses/MIT';
       case 'BSD 2-Clause Simplified License':
-        return 'https://opensource.org/licenses/BSD-2-Clause'
+        return 'https://opensource.org/licenses/BSD-2-Clause';
       case 'BSD-3 Clause New or Revised License':
-        return 'https://opensource.org/licenses/BSD-3-Clause'
+        return 'https://opensource.org/licenses/BSD-3-Clause';
       case 'Unlicensed':
-        return 'https://unlicense.org/'
+        return 'https://unlicense.org/';
       default:
-        return ' '
-    }
+        return ' ';
+    };
   } else {
-    return 'Please choose only one license'
-  }
-}
+    return 'Please choose only one license';
+  };
+};
 
 function renderLicenseSection(license, data) { //used data as an input as well because we'll be using it to put in github names
   if(license.length === 1){ //function to create the license text that will go into the license section
@@ -929,7 +929,7 @@ program into proprietary programs. If your program is a subroutine
 library, you may consider it more useful to permit linking proprietary
 applications with the library. If this is what you want to do, use the
 GNU Lesser General Public License instead of this License. But first,
-please read <https://www.gnu.org/licenses/why-not-lgpl.html>.`
+please read <https://www.gnu.org/licenses/why-not-lgpl.html>.`;
       case 'MIT License':
         return `
 The MIT License (MIT)
@@ -956,7 +956,7 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.`
+OTHER DEALINGS IN THE SOFTWARE.`;
       case 'BSD 2-Clause Simplified License':
         return `
 Simplified BSD License
@@ -988,7 +988,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 The views and conclusions contained in the software and documentation are those
 of the authors and should not be interpreted as representing official policies, 
-either expressed or implied, of the FreeBSD Project.`
+either expressed or implied, of the FreeBSD Project.`;
       case 'BSD-3 Clause New or Revised License':
         return `
 Modified BSD License
@@ -1019,7 +1019,7 @@ DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
 LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`;
       case 'Unlicensed':
         return `
 Unlicense (Public Domain)
@@ -1048,12 +1048,12 @@ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-For more information, please refer to &lt;<http://unlicense.org/>&gt;`
+For more information, please refer to &lt;<http://unlicense.org/>&gt;`;
       default:
-        return ' '
+        return ' ';
     }
   } else {
-    return 'Please choose only one license'
+    return 'Please choose only one license';
   }
 }
 
@@ -1122,6 +1122,6 @@ ${renderLicenseLink(data.license)}
 
 ${renderLicenseSection(data.license, data)}
 `;
-}
+};
 
 module.exports = generateMarkdown;

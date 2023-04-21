@@ -60,18 +60,17 @@ const questions = [ //questions that will be asked to the user
         choices: ['Apache 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause Simplified License', 'BSD-3 Clause New or Revised License', 'Unlicensed'],
         name: 'license',
     },
-
 ];
 
 function writeToFile(data) { //function that actually creates the file using the data that's given from the output of generateMarkDown(r)
     fs.appendFile('generated_readme.md', data, (err)=>{err?console.error(err):console.log('generated_readme.md created')/* this is the success message if there are no errors*/})
-}
+};
 
 function init() { //function that prompts the user then will use that response in the generateMarkdown function and the writeToFile function will use the output of the generateMarkDown function to create the generated_readme.md file
     inq.prompt(questions).then((r)=>{
-        writeToFile(generateMarkdown(r))
-    })
-}
+        writeToFile(generateMarkdown(r));
+    });
+};
 
 // Function call to initialize app
 init();
